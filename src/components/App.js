@@ -13,8 +13,9 @@ class App extends Component {
           name: 'Vaccine 1',
           additionalInfo: 'Vaccine can make dog sick.',
           repeat: true,
-          repeatEveryCount: 0,
-          repeatEvery: 'month'
+          repeatEveryCount: 3,
+          repeatTimes: 4,
+          repeatEvery: 'day',
         },
         {
           id: 1,
@@ -22,8 +23,9 @@ class App extends Component {
           name: 'Vaccine 2',
           additionalInfo: 'Vaccine can make dog sick.',
           repeat: false,
-          repeatEveryCount: 0,
-          repeatEvery: 'month'
+          repeatEveryCount: 4,
+          repeatTimes: 3,
+          repeatEvery: 'month',
         }
       ]
     }
@@ -38,7 +40,7 @@ class App extends Component {
   addVaccine = (vaccine) => {
     const vaccines = this.state.vaccines.slice();
     if(vaccine.id !== -1) {
-      let index = this.state.vaccines.findIndex(x => x.id == vaccine.id);;
+      let index = this.state.vaccines.findIndex(x => x.id === vaccine.id);;
       vaccines[index] = vaccine;
     } else {
       vaccine.id = vaccines.length;
